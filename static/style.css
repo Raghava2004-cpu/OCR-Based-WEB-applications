@@ -1,0 +1,239 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #e1eaf7;
+    color: #f8f8f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative; /* Needed for absolute positioning of the background */
+}
+
+/* Animated Number Background */
+.number-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: -1; /* Place behind other content */
+    overflow: hidden; /* Hide numbers that go out of bounds */
+}
+
+.number {
+    position: absolute;
+    font-size: 1.5em;
+    color: rgba(48, 21, 169, 0.1); /* Teal with low opacity */
+    white-space: nowrap; /* Prevent numbers from wrapping */
+    animation: floatNumber 15s linear infinite, driftNumber 10s ease-in-out infinite alternate; /* Combine animations */
+    opacity: 0; /* Start invisible */
+}
+
+@keyframes floatNumber {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.2;
+    }
+    90% {
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(-20vh) translateX(calc(20vw * var(--random-x))) ; /* Move upwards and slightly horizontally */
+        opacity: 0;
+    }
+}
+
+@keyframes driftNumber {
+    0% {
+        transform: translateX(calc(-10vw * var(--random-drift)));
+    }
+    100% {
+        transform: translateX(calc(10vw * var(--random-drift)));
+    }
+}
+
+.container {
+    background-color: rgba(18, 17, 35, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 960px;
+    margin: 40px auto;
+    position: relative; /* Ensure container is above the background */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #64ffda; /* Teal accent color for primary heading */
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    font-weight: 700; /* Bold heading */
+    letter-spacing: 0.05em; /* Subtle letter spacing */
+}
+
+header p {
+    color: #ccd6f6; /* Light grayish-blue for secondary text */
+    font-size: 1.1em;
+    opacity: 0.8; /* Slightly faded */
+}
+
+.upload-section, .results-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #233554; /* Darker border */
+    border-radius: 8px;
+    background-color: rgba(30, 41, 59, 0.7); /* Slightly lighter dark background */
+}
+
+.upload-section h2, .results-section h2 {
+    color: #64ffda; /* Teal accent for section headings */
+    margin-top: 0;
+    border-bottom: 2px solid #495670; /* Darker border bottom */
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #64ffda; /* Teal button */
+    color: #0a192f; /* Dark text on button */
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.file-label:hover {
+    background-color: #4aedc4; /* Slightly lighter teal on hover */
+}
+
+#image-upload {
+    display: none; /* Hide the default file input */
+}
+
+.submit-button {
+    background-color: #00bfff; /* Cyan for submit button */
+    color: #0a192f;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.submit-button:hover {
+    background-color: #0099cc; /* Darker cyan on hover */
+}
+
+.image-container {
+    text-align: center;
+    margin-bottom: 25px;
+    border: 1px solid #233554;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(30, 41, 59, 0.5); /* Slightly more transparent */
+}
+
+.uploaded-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.detections-container {
+    margin-top: 25px;
+}
+
+.detections-list {
+    list-style: none;
+    padding: 0;
+}
+
+.detection-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #495670;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detection-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 600;
+    color: #f0f8ff; /* Alice Blue */
+}
+
+.confidence {
+    color: #00bfff; /* Cyan */
+    font-weight: 500;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.back-link {
+    color: #64ffda;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    color: #4aedc4;
+}
+
+.no-detections {
+    color: #ccd6f6;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.error-message {
+    color: #ff4d4d; /* Reddish for errors */
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    color: #ccd6f6;
+    font-size: 0.9em;
+    opacity: 0.6;
+    border-top: 1px solid #233554;
+}
+
+footer a {
+    color: #64ffda;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #4aedc4;
+}

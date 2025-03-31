@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO OPTICAL CHARACTER RECOGNITION</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YOLO OPTICAL CHARACTER RECOGNITION</h1>
+            <p>Upload an image to detect Alphabets and Numbers using My model.</p>
+        </header>
+        <section class="upload-section">
+            <h2>Upload Image</h2>
+            <form method="POST" action="/predict" enctype="multipart/form-data">
+                <div class="input-group">
+                    <label for="image-upload" class="file-label">Choose File</label>
+                    <input type="file" name="image" id="image-upload" accept="image/*" required>
+                </div>
+                <button type="submit" class="submit-button">Predict</button>
+            </form>
+        </section>
+        <footer>
+            <p>&copy; 2025 Your AI Application</p>
+        </footer>
+    </div>
+</body>
+</html>

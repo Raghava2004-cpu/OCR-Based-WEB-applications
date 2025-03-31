@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Detection Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YOLO Detection Results</h1>
+            <p><a href="{{ url_for('index') }}" class="back-link">Upload Another Image</a></p>
+        </header>
+        <section class="results-section">
+            {% if predictions %}
+                <div class="image-container">
+                    <h2>Uploaded Image:</h2>
+                    <img src="{{ image_base64 }}" alt="Uploaded Image" class="uploaded-image">
+                </div>
+                <div class="detections-container">
+                    <h2>Detected Objects:</h2>
+                    {% if predictions|length > 0 %}
+                        <ul class="detections-list">
+                            {% for prediction in predictions %}
+                                <li class="detection-item">
+                                    <span class="label">{{ prediction.label }}</span>:
+                                    <span class="confidence">{{ '%.2f' % (prediction.confidence * 100) }}%</span> Confidence
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="no-detections">No objects detected in the image.</p>
+                    {% endif %}
+                </div>
+            {% else %}
+                <p class="error-message">{{ predictions }}</p>
+            {% endif %}
+        </section>
+        <footer>
+            <p>&copy; 2025 Your AI Application</p>
+        </footer>
+    </div>
+</body>
+</html>
