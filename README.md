@@ -1,1 +1,7 @@
 https://raghava07-ocr.hf.space/?__theme=system&deep_link=9tZ00_Hmco4
+The above Link Directly open the web browser also can open in the mobile phone .
+After opening it shows the default photo with predictions click on clear button and You can upload own image with Number including 0-9 and A-Z
+it accurately predicts the digits you can download the result output image and You can change the language if you are not familiar to understand english
+
+Actually I tried to deploy using the render-deployment free but due to large size of model and modules memory is insufficient 
+But deployment using the Hugging Face is simple and Exellent for the deployment of machine Learning and Deep Learning models.
