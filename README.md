@@ -1,1 +1,1 @@
-https://raghava07-ocr.hf.space/?__theme=system&deep_link=_k94lvJuIJ0
+https://raghava07-ocr.hf.space/?__theme=system&deep_link=nOMGaw1Sk6Q
