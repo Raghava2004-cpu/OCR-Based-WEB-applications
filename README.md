@@ -5,3 +5,6 @@ it accurately predicts the digits you can download the result output image and Y
 
 Actually I tried to deploy using the render-deployment free but due to large size of model and modules memory is insufficient 
 But deployment using the Hugging Face is simple and Exellent for the deployment of machine Learning and Deep Learning models.
+
+
+![Screenshot 2025-04-01 122819](https://github.com/user-attachments/assets/8817de70-eab6-48a4-84ac-f6adddf109f5)
